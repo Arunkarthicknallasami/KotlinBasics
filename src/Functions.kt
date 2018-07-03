@@ -1,3 +1,5 @@
+import java.math.BigInteger
+
 fun main(args: Array<String>) {
     val result = double(2)
 
@@ -27,6 +29,22 @@ fun main(args: Array<String>) {
     var infi = infixClass()
     infi createPyramid 5
 
+
+    /** tail recursive function*/
+    val n = 100
+    val first = BigInteger("0")
+    val second = BigInteger("1")
+
+    println(fibonacci(n, first, second))
+
+
+    printCircumferenceAndArea(3.0) // The circle circumference of 3.0 radius is 18.85 and area is 28.27
+
+}
+/**
+ * tail recursive function.A recursive function is eligible for tail recursion if the function call to itself is the last operation it performs. */
+tailrec fun fibonacci(n: Int, a: BigInteger, b: BigInteger): BigInteger {
+    return if (n == 0) a else fibonacci(n-1, b, a+b)
 }
 
 /**infix class samples*/
@@ -108,4 +126,19 @@ fun printHello(name: String?): Unit {
 }
 
 
+/**
+ * Inner functions
+ *  The nested functions can be called only from within the enclosing function and not outside.
+ *  Again, the use of nested functions makes our program more modular and tidy.
+ * */
+fun printCircumferenceAndArea(radius: Double): Unit {
+
+    fun calCircumference(radius: Double): Double = (2 * Math.PI) * radius
+    val circumference = "%.2f".format(calCircumference(radius))
+
+    fun calArea(radius: Double): Double = (Math.PI) * Math.pow(radius, 2.0)
+    val area = "%.2f".format(calArea(radius))
+
+    print("The circle circumference of $radius radius is $circumference and area is $area")
+}
 

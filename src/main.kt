@@ -439,4 +439,6 @@ fun Hero.savePlanet() {
     addSuperPower(5, 10)
 }
 
-
+fun String.add(str1: String, str2: String): String {
+    return this + str1 + str2
+}
