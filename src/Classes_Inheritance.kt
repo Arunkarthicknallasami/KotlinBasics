@@ -72,6 +72,7 @@ class ConstructorWithArguments constructor(var name: String, var age: Int) {
 /***********************************************************/
 //inheritance - Class with primary constructor and arguments
 open class Person(age: Int, name: String) {
+
     init {
         println("My name is $name.")
         println("My age is $age")

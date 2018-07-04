@@ -15,7 +15,7 @@ fun main(args: Array<String>) {
     val n = numbers.count { x -> x > 3 }
     println(n)
     /**above can also be written as follows with 'it' which is an default param in lambda's*/
-    val y = numbers.count { it > 3 } //when there are only one argument in lambda we can remove () from function
+    val y = numbers.count { it > 3 } //when there are only one argument in lambda we can remove () from function also we can use 'it'
     println(y)
 
     var sum = 0
@@ -49,6 +49,7 @@ fun main(args: Array<String>) {
     val program = Program()
     val mylambda :(Int) -> Unit = { println(it)}
     program.addTwoNumbers(5,11,mylambda)
+
 }
 
 class Average {
@@ -74,3 +75,4 @@ fun <T> max(collections: Collection<T>, less: (T, T) -> Boolean): T? {
             max = x
     return max
 }
+
