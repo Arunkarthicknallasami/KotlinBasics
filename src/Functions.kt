@@ -40,6 +40,9 @@ fun main(args: Array<String>) {
 
     printCircumferenceAndArea(3.0) // The circle circumference of 3.0 radius is 18.85 and area is 28.27
 
+
+    normalFunction()
+
 }
 /**
  * tail recursive function.A recursive function is eligible for tail recursion if the function call to itself is the last operation it performs. */
@@ -142,3 +145,14 @@ fun printCircumferenceAndArea(radius: Double): Unit {
     print("The circle circumference of $radius radius is $circumference and area is $area")
 }
 
+/**Inline functions*/
+fun normalFunction() {
+    println("This is normal function.")
+    inlineFunctionExample({ println("Inlined Functions")},{ println("Instead of object creation it copies the code.")} )
+}
+
+inline fun inlineFunctionExample(myFunction: () -> Unit, another: () -> Unit  ) {
+    myFunction()
+    another()
+    print("Finally it's working fine!")
+}
