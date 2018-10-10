@@ -64,8 +64,7 @@ fun main(args: Array<String>) {
 
     var people = listOf<Human>(Human("Sam", 25), Human("Peter", 54), Human("Henry", 48))
     var peopleNames = people.map { it.name }
-    for (people in peopleNames)
-    {
+    for (people in peopleNames) {
         println(people)
     }
 }

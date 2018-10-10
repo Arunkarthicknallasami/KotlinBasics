@@ -9,9 +9,9 @@ fun main(args: Array<String>) {
 
 //protected variable
 open class Pr {
-    //i can be accessed from extended class
+    //i can be accessed from extended class and own class
     protected val i = 0
-    //j can only be access inside the class
+    //j can only be access inside the class which owns it
     private val j = 1
 
     //private can be accessed inside class

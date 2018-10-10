@@ -12,9 +12,9 @@ interface ValueInterface {
  * In delegation we can pass context of interface and implement only methods which are required . In class 2 only print() is over ridden
  * so, calling print() from class2 obj will print2 from class2 and other interface methods will be called from class1
  * */
-class Class1 : ValueInterface {
+open class Class1 : ValueInterface {
 
-    fun callClass2() {
+    open fun callClass2() {
         Class2(this).printClass1()
 
     }
@@ -33,7 +33,6 @@ class Class1 : ValueInterface {
 }
 
 class Class2(private var interfaceVal: ValueInterface) : ValueInterface by interfaceVal {
-
     fun printClass1() {
         print()
         printMessage()

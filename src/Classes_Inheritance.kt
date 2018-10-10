@@ -1,4 +1,7 @@
 fun main(args: Array<String>) {
+    /*All classes in Kotlin have a common superclass Any, that is the default superclass for a class with no supertypes declared
+    * Note: Any is not java.lang.Object; in particular, it does not have any members other than equals(), hashCode() and toString().
+    * */
     InitOrderDemo("hello")
     var person = ConstructorWithArguments("Suresh", 25, "Developer")
     person.printPersonDetails()
@@ -22,6 +25,7 @@ fun main(args: Array<String>) {
 
     val e = C()
     e.f()
+
 }
 
 /***********************************************************/
@@ -203,6 +207,8 @@ class Derived3 : Derived2() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
+
+/*Abstract, data, enum, sealed*/
 
 /***********************************************************/
 

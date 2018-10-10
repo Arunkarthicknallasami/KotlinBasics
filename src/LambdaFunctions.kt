@@ -8,7 +8,7 @@ fun main(args: Array<String>) {
     val type1 = { x: Int, y: Int -> x * y }
     println("value of type1 is ${type1(2, 5)}")
 
-    val type2: (Int, Int) -> Int = { x, y -> x * y }
+    val type2: (Int, Int) -> Int = { x, y -> x + y }
     println("value of type2 is ${type2(2, 5)}")
 
     val numbers = listOf(7, 5, 1, 4, -10, 58)
@@ -49,6 +49,21 @@ fun main(args: Array<String>) {
     val program = Program()
     val mylambda :(Int) -> Unit = { println(it)}
     program.addTwoNumbers(5,11,mylambda)
+
+    val russianNames = arrayOf("Maksim", "Artem", "Sophia", "Maria", "Maksim")
+    val selectedName = russianNames
+            .filter { name -> name.startsWith("m", ignoreCase = true) }
+            .sortedBy { name -> name.length }
+            .firstOrNull()
+
+    val fun1: (Int,Int)->Int =
+            { a,b -> Math.max(a,b) }
+
+    val fun2: (String,MutableList<String>)->Unit =
+            { s,list -> list.add(s) }
+
+    val fun3: (Int,(Int)->Int)->Int =
+            { value, func -> func(value) }
 
 }
 

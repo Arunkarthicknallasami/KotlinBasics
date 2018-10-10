@@ -8,6 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="KotlinJavaRuntime" level="project" />
-    <orderEntry type="library" exported="" name="org.jetbrains.kotlinx:kotlinx-coroutines-core:0.23.4" level="project" />
+    <orderEntry type="library" exported="" name="org.jetbrains.kotlinx:kotlinx-coroutines-core:0.30.2" level="project" />
   </component>
 </module>
