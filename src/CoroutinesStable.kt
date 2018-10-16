@@ -1,12 +1,15 @@
 
 import kotlinx.coroutines.experimental.*
 import kotlinx.coroutines.experimental.channels.Channel
+import kotlin.system.measureTimeMillis
 
 fun main(args: Array<String>)  = runBlocking{
     var coroutine = couroutineFunction()
     cancelEvents()
     Timeouts()
-    coroutineChannels()
+//    coroutineChannels()
+    concurrentFunctions()
+    dispatchers()
 }
 
 //function is turned into a coroutine using runBlocking coroutine builder.
@@ -98,4 +101,33 @@ fun coroutineChannels() = runBlocking {
     for(y in channel) { println(channel.receive()) }
     println("Done!")
 
+}
+
+/*Concurrent functions*/
+fun concurrentFunctions() = runBlocking<Unit> {
+    val time = measureTimeMillis {
+        val one = async(start = CoroutineStart.LAZY) { doSomethingUsefulOne() }
+        val two = async(start = CoroutineStart.LAZY) { doSomethingUsefulTwo() }
+        // some computation
+        one.start() // start the first one
+        two.start() // start the second one
+        println("The answer is ${one.await() + two.await()}")
+    }
+    println("Completed in $time ms")
+}
+
+/*Dispatchers and threads*/
+fun dispatchers() = runBlocking<Unit> {
+    launch { // context of the parent, main runBlocking coroutine
+        println("main runBlocking      : I'm working in thread ${Thread.currentThread().name}")
+    }
+    launch(Dispatchers.Unconfined) { // not confined -- will work with main thread
+        println("Unconfined            : I'm working in thread ${Thread.currentThread().name}")
+    }
+    launch(Dispatchers.Default) { // will get dispatched to DefaultDispatcher
+        println("Default               : I'm working in thread ${Thread.currentThread().name}")
+    }
+    launch(newSingleThreadContext("MyOwnThread")) { // will get its own new thread
+        println("newSingleThreadContext: I'm working in thread ${Thread.currentThread().name}")
+    }
 }
