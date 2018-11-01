@@ -166,6 +166,10 @@ fun dispatchers() = runBlocking<Unit> {
         // not confined -- will work with main thread
         println("Unconfined            : I'm working in thread ${Thread.currentThread().name}")
     }
+    launch(Dispatchers.Main) {
+        // not confined -- will work with main thread for android
+        println("Unconfined            : I'm working in thread ${Thread.currentThread().name}")
+    }
     launch(Dispatchers.Default) {
         // will get dispatched to DefaultDispatcher
         println("Default               : I'm working in thread ${Thread.currentThread().name}")
